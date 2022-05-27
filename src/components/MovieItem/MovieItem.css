@@ -1,0 +1,39 @@
+.movie-item {
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #6f67a2a4;
+    display: flex;
+}
+
+.movie-item__poster {
+    border-radius: 5px;
+    height: 150px;
+    margin-right: 21px;
+}
+
+.movie-item__title {
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 21px;
+    margin-bottom: 14px;
+}
+
+.movie-item__add-button {
+    border: none;
+    border-radius: 10px;
+    background-color: #833AE0;
+    padding: 10px 15px;
+    color: #FFEEDB;
+    font-size: 14px;
+    transition: all 0.2s linear;
+}
+
+.movie-item__add-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.2s linear;
+}
+.phide{
+    opacity: 0.5;
+}
