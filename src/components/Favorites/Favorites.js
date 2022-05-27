@@ -66,6 +66,7 @@ function Favorites(props) {
             type="button"
             className="favorites__save"
             onClick={saveListHandler}
+            disabled={state.disabled}
           >
             Save List
           </button>

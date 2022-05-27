@@ -7,7 +7,7 @@ function Header() {
             <header className="header">
                 <h1 className="header__title">
                    <Link className='link' to="/">
-                       MustSee
+                       MustSee by haJy
                    </Link>
                 </h1>
             </header>
