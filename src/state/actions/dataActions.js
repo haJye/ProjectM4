@@ -68,7 +68,7 @@ export function searchMoveis(movies) {
         .then((data) => {
           dispatch(registerFavoriteList(data.id));
         })
-        .catch((error)=> console.log('Error bash verdi')) ;
+        .catch((error)=> console.log('Something go Wrong')) ;
         
     };
   }
@@ -91,7 +91,7 @@ export function searchMoveis(movies) {
           dispatch(getListIntoState(data.title, data.movies));
           dispatch(getMovieImdbID(data.movies));
         })
-        .catch((error)=> console.log('Error bash verdi'));
+        .catch((error)=> console.log('Something go Wrong'));
     };
   }
   export function getMovieInfoToState(movieDetails) {
@@ -112,7 +112,7 @@ export function searchMoveis(movies) {
             movieDetailsArray = [...movieDetailsArray, { ...data }];
             dispatch(getMovieInfoToState(movieDetailsArray));
           })
-          .catch((error)=> console.log('Error bash verdi'));;
+          .catch((error)=> console.log(' Something go Wrong '));;
       });
     };
   }

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Favorites(props) {
 
   const [state, setState] = useState({
-    isSbm: false,
+    btnCheck: false,
     title: "",
     disabled:false
   })
@@ -16,7 +16,7 @@ function Favorites(props) {
   const favoriteChangeHandler = (e) => {
     setState({ title: e.target.value });
   };
-  const getImdbIDArray = () => {
+  const getID = () => {
     let favoritesIDArray = props.favoriteList.map((item) => {
       return item.imdbID;
     });
@@ -27,11 +27,11 @@ function Favorites(props) {
       setState({disabled:true})
     }
     else{
-    setState({ isSbm: true });
-    props.postList(state.title, getImdbIDArray());
+    setState({ btnCheck: true });
+    props.postList(state.title, getID());
     }
   };
-    const { title, isSbm } = state;
+    const { title, btnCheck } = state;
     return (
       <div className="favorites">
         <input
@@ -39,7 +39,7 @@ function Favorites(props) {
           placeholder="Your List"
           className="favorites__name"
           onChange={favoriteChangeHandler}
-          disabled={state.isSbm}
+          disabled={state.btnCheck}
         />
         <ul className="favorites__list">
           {props.favoriteList.map((item) => {
@@ -61,7 +61,7 @@ function Favorites(props) {
           })}
         </ul>
           
-        {!isSbm ? (
+        {!btnCheck ? (
           <button 
             type="button"
             className="favorites__save"

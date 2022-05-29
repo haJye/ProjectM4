@@ -4,7 +4,7 @@ import "./MovieItem.css";
 import { addFavorite } from "../../state/actions/dataActions";
 
 function MovieItem(props) {
-  const ifIdInFavorites = (imdbID) => {
+  const chekFav = (imdbID) => {
     const active = props.favoriteList.find((item) => {
       return item.imdbID === imdbID;
     });
@@ -23,16 +23,16 @@ function MovieItem(props) {
           </h3>
           <button
             style={{
-            opacity: ifIdInFavorites(imdbID)? "0.5":"1"
+            opacity: chekFav(imdbID)? "0.5":"1"
             }}
             type="button"
             className="movie-item__add-button"
             onClick={() => {
               props.addFavorite(imdbID);
             }}
-            disabled={ifIdInFavorites(imdbID)}
+            disabled={chekFav(imdbID)}
           >
-            {ifIdInFavorites(imdbID) ? `Movie added to cart` : "Add to cart"}
+            {chekFav(imdbID) ? `Movie added to cart` : "Add to cart"}
           </button>
         </div>
       </article>
