@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./MovieItem.css";
-import { addFavoriteList } from "../../state/actions/dataActions";
+import { addFavorite } from "../../state/actions/dataActions";
 
 function MovieItem(props) {
   const ifIdInFavorites = (imdbID) => {
@@ -28,7 +28,7 @@ function MovieItem(props) {
             type="button"
             className="movie-item__add-button"
             onClick={() => {
-              props.addFavoriteList(imdbID);
+              props.addFavorite(imdbID);
             }}
             disabled={ifIdInFavorites(imdbID)}
           >
@@ -46,8 +46,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addFavoriteList: (imdbID) => {
-      dispatch(addFavoriteList(imdbID));
+    addFavorite: (imdbID) => {
+      dispatch(addFavorite(imdbID));
     },
   };
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ListPage.css";
 import { connect } from "react-redux";
-import { getList, getMovieInfoByImdbID } from "../../state/actions/dataActions";
+import { getList, getMovieImdbID } from "../../state/actions/dataActions";
 import Header from "../../components/Header/Header";
 function ListPage(props) {
  
@@ -63,7 +63,7 @@ function ListPage(props) {
                     </ul>
                   </div>
                 </div>
-                <a href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank">
+                <a href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank" rel="noreferrer">
                 <img
                   src={item.Poster}
                   className="single-movie__poster"
@@ -82,8 +82,8 @@ function ListPage(props) {
 
 const mapDispatchToProps = (dispatch) => ({
   getList: (id) => dispatch(getList(id)),
-  getMovieInfoByImdbID: (listMovies) =>
-    dispatch(getMovieInfoByImdbID(listMovies)),
+  getMovieImdbID: (listMovies) =>
+    dispatch(getMovieImdbID(listMovies)),
 });
 
 const mapStateToProps = (state) => {

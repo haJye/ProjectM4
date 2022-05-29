@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBox.css";
 import { connect } from "react-redux";
-import { fetchMovies } from "../../state/actions/dataActions";
+import { getMovie } from "../../state/actions/dataActions";
 
 function SearchBox(props) {
 
@@ -15,7 +15,7 @@ function SearchBox(props) {
 
   const searchBoxSubmitHandler = (e) => {
     e.preventDefault();
-    props.dispatch(fetchMovies(state.searchLine));
+    props.dispatch(getMovie(state.searchLine));
   };
 
     const { searchLine } = state;

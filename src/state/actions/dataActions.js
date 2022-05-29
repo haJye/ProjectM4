@@ -9,7 +9,7 @@ export function searchMoveis(movies) {
     };
   }
   
-  export function fetchMovies(name) {
+  export function getMovie(name) {
     return function (dispatch) {
       const api = "cf4b435";
       fetch(`http://www.omdbapi.com/?s=${name}&apikey=${api}`)
@@ -24,7 +24,7 @@ export function searchMoveis(movies) {
     };
   }
   
-  export function addFavoriteList(id) {
+  export function addFavorite(id) {
     return {
       type: ADD,
       payload: {
@@ -33,7 +33,7 @@ export function searchMoveis(movies) {
     };
   }
   
-  export function removeMovieFromFavoriteList(id) {
+  export function removeMovie(id) {
     return {
       type: REMOVE,
       payload: {
@@ -89,7 +89,7 @@ export function searchMoveis(movies) {
         .then((res) => res.json())
         .then((data) => {
           dispatch(getListIntoState(data.title, data.movies));
-          dispatch(getMovieInfoByImdbID(data.movies));
+          dispatch(getMovieImdbID(data.movies));
         })
         .catch((error)=> console.log('Error bash verdi'));
     };
@@ -102,7 +102,7 @@ export function searchMoveis(movies) {
       },
     };
   }
-  export function getMovieInfoByImdbID(movies) {
+  export function getMovieImdbID(movies) {
     return function (dispatch) {
       let movieDetailsArray = [];
       movies.forEach((e) => {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./Favorites.css";
 import { connect } from "react-redux";
-import { removeMovieFromFavoriteList, postList } from "../../state/actions/dataActions";
+import { removeMovie, postList } from "../../state/actions/dataActions";
 import { Link } from "react-router-dom";
 
 function Favorites(props) {
@@ -49,7 +49,7 @@ function Favorites(props) {
                 <button
                   className="remove-favorite-movie"
                   onClick={() =>
-                    props.removeMovieFromFavoriteList(item.imdbID)
+                    props.removeMovie(item.imdbID)
                 }
                 >
                   🗑️
@@ -94,8 +94,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeMovieFromFavoriteList: (id) => {
-      dispatch(removeMovieFromFavoriteList(id));
+    removeMovie: (id) => {
+      dispatch(removeMovie(id));
     },
     postList: (title, favoritesIDArray) => {
       dispatch(postList(title, favoritesIDArray));
