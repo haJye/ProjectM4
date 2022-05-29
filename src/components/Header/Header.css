@@ -1,16 +1,17 @@
 .header {
     background: #833AE0;
     padding: 20px calc(50% - 500px) 10px;
-    border-radius:0 0 15px 15px ;
+    border-radius: 0 0 15px 15px;
 }
 
 .header__title {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #FFEEDB;
     font-size: 45px;
     margin-left: 40px;
 }
-.link{
+
+.link {
     text-decoration: none;
     color: white;
 }

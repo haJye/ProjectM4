@@ -4,15 +4,15 @@ import "./Movies.css";
 import { connect } from "react-redux";
 
 function Movies(props) {
-    return (
-      <ul className="movies">
-        {props.movies.map((movie) => (
-          <li className="movies__item" key={movie.imdbID}>
-            <MovieItem {...movie} />
-          </li>
-        ))}
-      </ul>
-    );
+  return (
+    <ul className="movies">
+      {props.movies.map((movie) => (
+        <li className="movies__item" key={movie.imdbID}>
+          <MovieItem {...movie} />
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 const mapStateToProps = (state) => {

@@ -7,12 +7,12 @@ import "./reset.css";
 import "./common.css";
 
 function App() {
-    return (
-      <div className="app">
-        <Route path="/" exact component={MainPage} />
-        <Route path="/list/:id" exact component={ListPage} />
-      </div>
-    )
+  return (
+    <div className="app">
+      <Route path="/" exact component={MainPage} />
+      <Route path="/list/:id" exact component={ListPage} />
+    </div>
+  );
 }
 
 export default App;

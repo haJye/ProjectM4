@@ -4,23 +4,20 @@ import { connect } from "react-redux";
 import { getList, getMovieImdbID } from "../../state/actions/dataActions";
 import Header from "../../components/Header/Header";
 function ListPage(props) {
- 
-
   const [state, setState] = useState({
-    isClicked: false
-  })
+    isClicked: false,
+  });
 
+  useEffect(() => {
+    const id = props.match.params.id;
+    console.log(id);
+    props.getList(id);
+  }, []);
 
-  useEffect(()=>{
-    const id = props.match.params.id
-    console.log(id)
-    props.getList(id)
-  },[])
-
-    console.log(props);
-    return (
+  console.log(props);
+  return (
     <>
-        <Header />
+      <Header />
       <div className="list-page">
         <h1 className="list-page__title">{props.title}</h1>
         <ul>
@@ -31,9 +28,7 @@ function ListPage(props) {
                   <h3 className="movie-item__title">{item.Title}</h3>
                   <h4 className="movie-item__about">About movie</h4>
                   <div className="list-page__details">
-                    <div className="list-page__details-title">
-                      Date:
-                    </div>
+                    <div className="list-page__details-title">Date:</div>
                     <div className="list-page__details-value">{item.Year}</div>
                   </div>
                   <div className="list-page__details">
@@ -63,27 +58,29 @@ function ListPage(props) {
                     </ul>
                   </div>
                 </div>
-                <a href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank" rel="noreferrer">
-                <img
-                  src={item.Poster}
-                  className="single-movie__poster"
-                  alt={item.Title}
-                />
+                <a
+                  href={`https://www.imdb.com/title/${item.imdbID}/`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={item.Poster}
+                    className="single-movie__poster"
+                    alt={item.Title}
+                  />
                 </a>
               </li>
-              
             );
           })}
         </ul>
       </div>
     </>
-    )
+  );
 }
 
 const mapDispatchToProps = (dispatch) => ({
   getList: (id) => dispatch(getList(id)),
-  getMovieImdbID: (listMovies) =>
-    dispatch(getMovieImdbID(listMovies)),
+  getMovieImdbID: (listMovies) => dispatch(getMovieImdbID(listMovies)),
 });
 
 const mapStateToProps = (state) => {
