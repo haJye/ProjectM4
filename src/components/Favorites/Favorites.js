@@ -24,10 +24,10 @@ function Favorites(props) {
   };
   const saveListHandler = () => {
     if(!state.title.length){
-      setState({disabled:true})
+      setState( prev =>({...prev , disabled:true}))
     }
     else{
-    setState({ btnCheck: true });
+    setState(prev=> ( { ...prev, btnCheck: true }));
     props.postList(state.title, getID());
     }
   };
